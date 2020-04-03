@@ -68,3 +68,10 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 729)
 
 
+Started GET "/reviews" for ::1 at 2020-04-03 10:30:59 -0500
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (1.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+Completed 200 OK in 233ms (Views: 50.8ms | ActiveRecord: 176.1ms | Allocations: 7139)
+
+
