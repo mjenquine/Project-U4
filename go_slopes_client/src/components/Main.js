@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Review from './Review.js'
 
 
 class Main extends React.Component {
@@ -8,7 +8,7 @@ class Main extends React.Component {
   }
 
   fetchReviews = async () => {
-    let response = await fetch('http://localhost:3000/reviews')
+    let response = await fetch('/reviews')
     let data = await response.json()
     console.log(data)
     this.setState({ reviews: data})
@@ -19,13 +19,17 @@ class Main extends React.Component {
   }
 
   render () {
-    return (
-      <main>
-        <h1>Hi</h1>
-
-      </main>
-    )
-  }
+  return (
+    <main>
+      {this.state.reviews.map((review) => (
+        <Review
+          key={review.id}
+          review={review}
+        />
+      ))}
+    </main>
+  )
+}
 }
 
 export default Main
