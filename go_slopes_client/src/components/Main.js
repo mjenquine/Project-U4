@@ -1,5 +1,6 @@
 import React from 'react'
 import Review from './Review.js'
+import Form from './Form.js'
 
 
 class Main extends React.Component {
@@ -12,6 +13,23 @@ class Main extends React.Component {
     let data = await response.json()
     console.log(data)
     this.setState({ reviews: data})
+  }
+
+  handleCreate = async createData => {
+    let response = await fetch('/reviews',
+    {
+      body: JSON.stringify(createData),
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+    let data = await response.json()
+    this.props.handleView('home')
+    this.setState(prevState => {
+      return({ reviews: [...prevState.reviews, data]})
+    })
   }
 
   componentDidMount() {
@@ -30,7 +48,9 @@ class Main extends React.Component {
           handleView={this.props.handleView}
         />
       ))
-      : <Form/>
+      : <Form
+          handleCreate={this.handleCreate}
+        />
       }
     </main>
   )
