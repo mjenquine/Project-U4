@@ -145,3 +145,10 @@ Processing by ReviewsController#index as */*
 Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 1.1ms | Allocations: 1381)
 
 
+Started GET "/reviews" for 127.0.0.1 at 2020-04-03 11:00:24 -0500
+Processing by ReviewsController#index as */*
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews"[0m
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 7.3ms | ActiveRecord: 0.7ms | Allocations: 1308)
+
+
