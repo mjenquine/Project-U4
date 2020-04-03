@@ -1,14 +1,12 @@
 import React from 'react'
 
-
-
 class Main extends React.Component {
   state = {
     reviews: []
   }
 
   fetchReviews = async () => {
-    let response = await fetch('http://localhost:3000/reviews')
+    let response = await fetch('/reviews')
     let data = await response.json()
     console.log(data)
     this.setState({ reviews: data})
