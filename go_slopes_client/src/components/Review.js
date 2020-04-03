@@ -28,8 +28,9 @@ class Review extends React.Component {
         </div>
         <div>
           <ul>
-            <li onClick={() => {this.props.handleView('editReview', this.props.review)}}>edit review</li>
-            <li onClick={() => {this.props.handleDelete(this.props.review.id)}}>delete review</li>
+            <li onClick={() => {this.props.handleView('editReview', this.props.review)}}><button type="button" className="btn btn-secondary">Edit Review</button></li>
+            <br></br>
+            <li onClick={() => {this.props.handleDelete(this.props.review.id)}}><button type="button" className="btn btn-secondary">Delete Review</button></li>
           </ul>
         </div>
       </article>

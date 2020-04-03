@@ -6,7 +6,7 @@ class App extends React.Component {
   state = {
     view: {
       page: 'home',
-      pageTitle: 'Go Slopes!',
+      pageTitle: 'Reviews',
     },
     formInputs: {
       name: null,
@@ -34,7 +34,7 @@ class App extends React.Component {
     }
     switch (view) {
       case 'home':
-        pageTitle = 'Go Slopes!'
+        pageTitle = 'Reviews!'
         break
       case 'addReview':
         pageTitle = 'How were the slopes?'
@@ -67,12 +67,17 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
-        <Aside handleView={this.handleView}/>
-        <Main view={this.state.view} handleView={this.handleView} formInputs={this.state.formInputs}/>
-
-
-      </div>
+      <>
+        <header>
+          <h1 className="main-title">Slope Reviews</h1>
+        </header>
+        <div className="main-page-layout">
+            <Aside handleView={this.handleView}/>
+            <Main view={this.state.view} handleView={this.handleView} formInputs={this.state.formInputs}/>
+        </div>
+        <footer>
+        </footer>
+      </>
     )
   }
 }
