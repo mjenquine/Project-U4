@@ -28,7 +28,7 @@ class Review extends React.Component {
         </div>
         <div>
           <ul>
-            <li onClick={() => {this.props.handleView('editReview')}}>edit review</li>
+            <li onClick={() => {this.props.handleView('editReview', this.props.review)}}>edit review</li>
           </ul>
         </div>
       </article>

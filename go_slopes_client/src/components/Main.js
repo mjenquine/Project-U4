@@ -31,6 +31,19 @@ class Main extends React.Component {
       return({ reviews: [...prevState.reviews, data]})
     })
   }
+  handleUpdate = async updateData => {
+    let response = await fetch (`/reviews/${updateData.id}`, {
+      body: JSON.stringify(updateData),
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+    let data = await response.json()
+    this.props.handleView('home')
+    this.fetchReviews()
+  }
 
   componentDidMount() {
     this.fetchReviews()
@@ -50,6 +63,9 @@ class Main extends React.Component {
       ))
       : <Form
           handleCreate={this.handleCreate}
+          handleUpdate={this.handleUpdate}
+          formInputs={this.props.formInputs}
+          view={this.props.view}
         />
       }
     </main>

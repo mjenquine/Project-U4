@@ -26,7 +26,18 @@ class Form extends React.Component {
       this.props.handleUpdate(this.state)
     }
   }
-
+  componentDidMount() {
+    this.setState({
+      name: this.props.formInputs.name,
+      city: this.props.formInputs.city,
+      state: this.props.formInputs.state,
+      runs: this.props.formInputs.runs,
+      elevation: this.props.formInputs.elevation,
+      lift: this.props.formInputs.lift,
+      bar: this.props.formInputs.bar,
+      id: this.props.formInputs.id
+    })
+  }
 
   render () {
     return (
