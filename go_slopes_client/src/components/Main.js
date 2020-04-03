@@ -21,15 +21,20 @@ class Main extends React.Component {
   render () {
   return (
     <main>
-      {this.state.reviews.map((review) => (
+      <h1>{this.props.view.pageTitle}</h1>
+      {this.props.view.page === 'home'
+      ? this.state.reviews.map((review) => (
         <Review
           key={review.id}
           review={review}
+          handleView={this.props.handleView}
         />
-      ))}
+      ))
+      : <Form/>
+      }
     </main>
   )
-}
+  }
 }
 
 export default Main

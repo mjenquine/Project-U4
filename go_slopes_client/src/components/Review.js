@@ -26,7 +26,11 @@ class Review extends React.Component {
         <div>
           {this.props.review.bar}
         </div>
-
+        <div>
+          <ul>
+            <li onClick={() => {this.props.handleView('editReview')}}>edit review</li>
+          </ul>
+        </div>
       </article>
     )
   }
