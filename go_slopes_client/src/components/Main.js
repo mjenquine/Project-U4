@@ -45,6 +45,20 @@ class Main extends React.Component {
     this.fetchReviews()
   }
 
+  handleDelete = async id => {
+    let response = await fetch(`/reviews/${id}`, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+    this.setState(prevState => {
+      const reviews = prevState.reviews.filter(review => review.id !== id)
+      return { reviews }
+    })
+  }
+
   componentDidMount() {
     this.fetchReviews()
   }
@@ -59,6 +73,7 @@ class Main extends React.Component {
           key={review.id}
           review={review}
           handleView={this.props.handleView}
+          handleDelete={this.handleDelete}
         />
       ))
       : <Form
