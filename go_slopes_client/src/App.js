@@ -25,14 +25,14 @@ class App extends React.Component {
       default:
         break
     }
-  // update the state
-  this.setState({
-    view: {
-      page: view,
-      pageTitle: pageTitle
-    }
-  })
-}
+  
+    this.setState({
+      view: {
+        page: view,
+        pageTitle: pageTitle
+      }
+    })
+  }
 
   render () {
     return (
@@ -45,6 +45,6 @@ class App extends React.Component {
     )
   }
 }
-}
+
 
 export default App
