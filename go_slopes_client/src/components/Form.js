@@ -42,7 +42,7 @@ class Form extends React.Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div className="form-group">
+        <div className="form-group ">
           <label>
             Mountain Name
             <input className="form-control" type="text" placeholder="Bolton Valley" id="name" value={this.state.name} onChange={this.handleChange}/>
